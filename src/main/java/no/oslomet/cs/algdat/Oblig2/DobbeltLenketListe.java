@@ -41,7 +41,22 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(a, "Tabellen a er null!");
+        Node<T> forrige = null;
+        for (T t : a) {
+            if (t != null) {
+                if (hode == null) {
+                    hode = new Node<>(t);
+                    forrige = hode;
+                } else {
+                    Node<T> ny = new Node<>(t, forrige, null);
+                    forrige.neste = ny;
+                    forrige = ny;
+                }
+                antall++;
+            }
+        }
+        hale = forrige;
     }
 
     public Liste<T> subliste(int fra, int til) {
@@ -50,12 +65,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        throw new UnsupportedOperationException();
+        return antall;
     }
 
     @Override
     public boolean tom() {
-        throw new UnsupportedOperationException();
+        return hode == null;
     }
 
     @Override

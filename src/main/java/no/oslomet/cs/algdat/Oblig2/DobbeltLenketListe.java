@@ -6,6 +6,7 @@ package no.oslomet.cs.algdat.Oblig2;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Objects;
 
 
 public class DobbeltLenketListe<T> implements Liste<T> {
@@ -120,7 +121,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException();
+        StringBuilder s = new StringBuilder();
+        s.append('[');
+        if (!tom())
+        {
+            Node<T> p = hode;
+            s.append(p.verdi);
+            p = p.neste;
+            while (p != null)  // tar med resten hvis det er noe mer
+            {
+                s.append(',').append(' ').append(p.verdi);
+                p = p.neste;
+            }
+        }
+        s.append(']');
+        return s.toString();
     }
 
     public String omvendtString() {

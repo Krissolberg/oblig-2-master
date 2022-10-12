@@ -1108,7 +1108,7 @@ class Oblig2Test {
 
 //        Lager ny liste da jeg ikke skulle implementere nullstill-metoden. Uten å lage ny liste her så blir det
 //        følgefeil i de neste testene
-        
+
         liste = new DobbeltLenketListe<>();
         for (int j = 1; j <= 7; j++) liste.leggInn(j);
 

@@ -200,7 +200,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         int teller = 0;
 
         while (current != null) {
-            if (verdi == current.verdi) {
+            if (verdi.equals(current.verdi)) {
                 return teller;
             }
 

@@ -392,6 +392,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return nodeVerdi;
         }
 
+
         @Override
         public void remove() {
             throw new UnsupportedOperationException();
